@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Référentiel Certificateurs Qualiopi - Academia360</title>
+    
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette de couleurs */
+            --primary-blue: #2c3e50;
+            --accent-violet: #6c5ce7;
+            --accent-pink: #e84393;
+            --accent-gold: #f1c40f;
+            --text-dark: #2d3436;
+            --text-gray: #636e72;
+            --bg-light: #f4f6f8;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --gradient-brand: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header Academia360 --- */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Intégration du Logo */
+        .logo-img {
+            height: 55px; 
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+
+        .brand-tagline {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-gray);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-auditor {
+            background: var(--accent-violet);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gradient-brand);
+            color: white;
+            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-violet);
+            color: var(--accent-violet);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-violet);
+            color: white;
+        }
+
+        /* --- Main Content --- */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        /* --- Hero / Intro Section --- */
+        .intro-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            border-left: 6px solid var(--accent-violet);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-brand);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .intro-card h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .disclaimer-box {
+            background-color: #f0f3ff;
+            border: 1px solid #d1d9ff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .disclaimer-icon {
+            color: var(--accent-violet);
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-info span {
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* --- Sections --- */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .table-container {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: var(--primary-blue);
+            font-weight: 700;
+            padding: 1.2rem 1rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            user-select: none;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        th:hover {
+            background-color: #e9ecef;
+            color: var(--accent-violet);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            color: var(--text-dark);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #fafafa;
+        }
+
+        td a {
+            color: var(--accent-violet);
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        td a:hover {
+            color: var(--accent-pink);
+            text-decoration: underline;
+        }
+
+        .tag-label {
+            display: inline-block;
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--accent-violet);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+        }
+
+        /* --- Animation Spécifique CIDÉES (CLIGNOTANT) --- */
+        .row-cidees {
+            border-left: 4px solid var(--accent-gold);
+            animation: blinkGold 2s infinite ease-in-out;
+        }
+
+        .row-cidees td:first-child {
+            font-weight: 700;
+            color: #b7950b;
+        }
+        
+        @keyframes blinkGold {
+            0% { background-color: rgba(255, 255, 255, 1); }
+            50% { background-color: rgba(255, 235, 59, 0.25); 
+            100% { background-color: rgba(255, 255, 255, 1); }
+        }
+
+        /* --- Footer: Le CSS est maintenant appliqué DIRECTEMENT dans le HTML en bas de page --- */
+
+        /* --- Toast Notification --- */
+        #toast {
+            visibility: hidden;
+            min-width: 300px;
+            background-color: #2ecc71;
+            color: #fff;
+            text-align: center;
+            border-radius: 50px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1001;
+            bottom: 30px;
+            right: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Print Styles --- */
+        @media print {
+            .btn, .header-actions, .disclaimer-box, .footer-site-link {
+                display: none !important;
+            }
+            header {
+                box-shadow: none;
+                border-bottom: 2px solid #000;
+                padding: 1rem 0;
+            }
+            body {
+                background-color: white;
+                color: black;
+            }
+            .logo-img {
+                filter: grayscale(100%);
+            }
+            .brand-name { color: black; }
+            .row-cidees {
+                background-color: #fff !important;
+                border-left: 2px solid black;
+                animation: none;
+            }
+            .table-container {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+            }
+            th {
+                background-color: #eee !important;
+                color: black !important;
+                -webkit-print-color-adjust: exact;
+            }
+            td a {
+                text-decoration: none;
+                color: black;
+            }
+            .tag-label {
+                border: 1px solid #000;
+                background: none;
+                color: #000;
+            }
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .brand {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            .brand-tagline {
+                justify-content: center;
+            }
+            .header-actions {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .intro-card {
+                padding: 1.5rem;
+            }
+            .table-container {
+                overflow-x: auto;
+            }
+            table { min-width: 600px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Notification Toast -->
+    <div id="toast">✅ Liste exportée avec succès !</div>
+
+    <header>
+        <div class="brand">
+            <!-- Logo Intégré -->
+            <img src="https://z-cdn-media.chatglm.cn/files/181757b4-eb2d-4bd9-9c9f-e65e9ac37dca.png?auth_key=1870718681-92a6bccfbfd840c6b0c990ac94900f9d-0-a322b6f1780bdb4f6a85471882966c77" alt="Logo Academia360" class="logo-img">
+            
+            <div class="brand-text">
+                <div class="brand-name">Academia360° - Expert Qualiopi</div>
+                <div class="brand-tagline">
+                    Centre de Formation & Auditeur <span class="badge-auditor">Qualiopi</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-outline" onclick="window.print()">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+                Imprimer / PDF
+            </button>
+            <button class="btn btn-primary" onclick="downloadCSV()">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Télécharger la liste
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Introduction Clarifiée -->
+        <article class="intro-card">
+            <h2>Guide des Certificateurs Qualiopi</h2>
+            <div class="meta-info">
+                <span>Mise à jour : 03/12/2025</span>
+                <span>Source : Ministère du Travail</span>
+            </div>
+            
+            <p style="margin-bottom: 1rem;">
+                La certification qualité <strong>Qualiopi</strong> est une obligation pour les organismes de formation financés par des fonds publics. 
+                Pour obtenir cette certification, vous devez passer auprès d'un organisme certificateur accrédité par le COFRAC.
+            </p>
+
+            <!-- Boîte de clarification importante -->
+            <div class="disclaimer-box">
+                <div class="disclaimer-icon">ℹ️</div>
+                <div>
+                    <strong>Academia360 n'est pas un certificateur.</strong><br>
+                    Nous sommes un <strong>Centre de Formation</strong> et un <strong>Auditeur Qualiopi</strong>. Nous mettons cette liste à votre disposition pour vous aider à choisir le bon partenaire certification parmi les accrédités officiels.
+                </div>
+            </div>
+
+            <p>
+                <em>Note : Certains certificateurs, comme Cidées Certification, sont reconnus pour leur expertise spécifique dans l'accompagnement à la qualité.</em>
+            </p>
+        </article>
+
+        <!-- Tableau 1: Certificateurs -->
+        <div class="section-header">
+            <div class="section-title">Organismes Certificateurs Accrédités</div>
+        </div>
+        <div class="table-container">
+            <table id="tableCertif">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0, 'tableCertif')">Nom de l'organisme</th>
+                        <th onclick="sortTable(1, 'tableCertif')">Contact Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>AB Certification</td><td><a href="mailto:contact@abcertification.com">contact@abcertification.com</a></td></tr>
+                    <tr><td>ACTIVCERT</td><td><a href="mailto:client@activcert.com">client@activcert.com</a></td></tr>
+                    <tr><td>Acuria Certification</td><td><a href="mailto:qualiopi@acuria-certification.com">qualiopi@acuria-certification.com</a></td></tr>
+                    <tr><td>Afnor Certification</td><td><a href="mailto:certification@afnor.org">certification@afnor.org</a></td></tr>
+                    <tr><td>Alpha Certif 12</td><td><a href="mailto:contact@alphacertif12.fr">contact@alphacertif12.fr</a></td></tr>
+                    <tr><td>ALTICERT</td><td><a href="mailto:contact-alticert.certification@orange.fr">contact-alticert.certification@orange.fr</a></td></tr>
+                    <tr><td>ANI</td><td><a href="mailto:ani.certifications@gmail.com">ani.certifications@gmail.com</a></td></tr>
+                    <tr><td>Apave Certification</td><td><a href="mailto:apave.certification@apave.com">apave.certification@apave.com</a></td></tr>
+                    <tr><td>ATALIA Certification</td><td><a href="mailto:infos@ataliacertification.fr">infos@ataliacertification.fr</a></td></tr>
+                    <tr><td>BCS Certification</td><td><a href="mailto:v.mounier@bcs-certification.com">v.mounier@bcs-certification.com</a></td></tr>
+                    <tr><td>Bureau de Certification international France</td><td><a href="mailto:contact@bcifrance.fr">contact@bcifrance.fr</a></td></tr>
+                    <tr><td>Bureau Veritas</td><td><a href="mailto:certification.formation@bureauveritas.com">certification.formation@bureauveritas.com</a></td></tr>
+                    <tr><td>CAPCERT</td><td><a href="mailto:contact@capcertification.com">contact@capcertification.com</a></td></tr>
+                    <tr><td>CCTA Certification</td><td><a href="mailto:contact@ccta-certification.fr">contact@ccta-certification.fr</a></td></tr>
+                    <tr><td>Certifopac</td><td><a href="mailto:contact@certifopac.fr">contact@certifopac.fr</a></td></tr>
+                    <tr><td>Certi. Kôntrol</td><td><a href="mailto:contact@certikontrol.fr">contact@certikontrol.fr</a></td></tr>
+                    <tr><td>CertUp Maïeutika</td><td><a href="mailto:info@maieutika.com">info@maieutika.com</a></td></tr>
+                    <tr><td>Ceva Solution</td><td><a href="mailto:certifications@cevasolution.fr">certifications@cevasolution.fr</a></td></tr>
+                    
+                    <!-- Ligne Spéciale Cidées : Clignotante -->
+                    <tr class="row-cidees">
+                        <td>Cidées Certification</td>
+                        <td><a href="mailto:contact@cidees-certification.com">contact@cidees-certification.com</a></td>
+                    </tr>
+
+                    <tr><td>DEKRA Certification</td><td><a href="mailto:dcs.fr@dekra.com">dcs.fr@dekra.com</a></td></tr>
+                    <tr><td>EVOLVE</td><td><a href="mailto:commercial@evolve-certification.fr">commercial@evolve-certification.fr</a></td></tr>
+                    <tr><td>Global Certification</td><td><a href="mailto:qualiopi@global-certification.fr">qualiopi@global-certification.fr</a></td></tr>
+                    <tr><td>HOFI Cert</td><td><a href="mailto:info@hoficert.com">info@hoficert.com</a></td></tr>
+                    <tr><td>I.Cert</td><td><a href="mailto:qualiopi@icert.fr">qualiopi@icert.fr</a></td></tr>
+                    <tr><td>ICPF & PSI</td><td><a href="mailto:info@certif-icpf.org">info@certif-icpf.org</a></td></tr>
+                    <tr><td>ISQ</td><td><a href="mailto:info@isqcertification.com">info@isqcertification.com</a></td></tr>
+                    <tr><td>Label Qualité Système</td><td><a href="mailto:qualite@lqs.fr">qualite@lqs.fr</a></td></tr>
+                    <tr><td>Polycert</td><td><a href="mailto:contact@polycert.com">contact@polycert.com</a></td></tr>
+                    <tr><td>Proneo Certification</td><td><a href="mailto:info@proneo-certification.fr">info@proneo-certification.fr</a></td></tr>
+                    <tr><td>QOANIX</td><td><a href="mailto:contact@qoanix.com">contact@qoanix.com</a></td></tr>
+                    <tr><td>Qualianor Certification</td><td><a href="mailto:qualiopi@qualianor.com">qualiopi@qualianor.com</a></td></tr>
+                    <tr><td>Qualibat</td><td><a href="mailto:Qualiopi@qualibat.com">Qualiopi@qualibat.com</a></td></tr>
+                    <tr><td>Qualipro Certification</td><td><a href="mailto:contact@quamiprocertifications.fr">contact@quamiprocertifications.fr</a></td></tr>
+                    <tr><td>Qualitia Certification</td><td><a href="mailto:qualiopi@qualitia-certification.fr">qualiopi@qualitia-certification.fr</a></td></tr>
+                    <tr><td>SGS ICS</td><td><a href="mailto:fr.certification@sgs.com">fr.certification@sgs.com</a></td></tr>
+                    <tr><td>Socotec Certification</td><td><a href="mailto:certification.france@socotec.com">certification.france@socotec.com</a></td></tr>
+                    <tr><td>Sphinx Certification</td><td><a href="mailto:contact@sphinx-certification.fr">contact@sphinx-certification.fr</a></td></tr>
+                    <tr><td>We-cert</td><td><a href="mailto:service@qualit-competences.com">service@qualit-competences.com</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <a href="https://tools.cofrac.fr" target="_blank" style="color: var(--accent-violet); font-weight: 600; text-decoration: none;">Voir les accrédités sur tools.cofrac.fr ↗</a>
+        </div>
+
+        <!-- Tableau 2: Instances de labellisation -->
+        <div class="section-header">
+            <div class="section-title">Instances de Labellisation</div>
+        </div>
+        <div class="table-container">
+            <table id="tableLabel">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0, 'tableLabel')">Instance</th>
+                        <th onclick="sortTable(1, 'tableLabel')">Label</th>
+                        <th onclick="sortTable(2, 'tableLabel')">Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Association pour la promotion du label APP</td>
+                        <td><span class="tag-label">APP</span></td>
+                        <td><a href="mailto:contact@app-reseau.eu">contact@app-reseau.eu</a></td>
+                    </tr>
+                    <tr>
+                        <td>Fédération Nationale des CIBC</td>
+                        <td><span class="tag-label">OBCAQT</span></td>
+                        <td><a href="mailto:contact@c-n-l.net">contact@c-n-l.net</a></td>
+                    </tr>
+                    <tr>
+                        <td>France Education International</td>
+                        <td><span class="tag-label">Qualité FLE</span></td>
+                        <td><a href="mailto:qualitefle@france-education-international.fr">qualitefle@france-education-international.fr</a></td>
+                    </tr>
+                    <tr>
+                        <td>Ministère de l’éducation nationale</td>
+                        <td><span class="tag-label">Eduform</span></td>
+                        <td><a href="mailto:dgpesco.eduform@education.gouv.fr">dgpesco.eduform@education.gouv.fr</a></td>
+                    </tr>
+                    <tr>
+                        <td>Ministère de l’intérieur</td>
+                        <td><span class="tag-label">Écoles de conduite</span></td>
+                        <td><a href="mailto:bfper-dsr@interieur.gouv.fr">bfper-dsr@interieur.gouv.fr</a></td>
+                    </tr>
+                    <tr>
+                        <td>Ministère de l’agriculture</td>
+                        <td><span class="tag-label">QualiFormAgri</span></td>
+                        <td><a href="mailto:contact-qualiformagri@agrosupdijon.fr">contact-qualiformagri@agrosupdijon.fr</a></td>
+                    </tr>
+                    <tr>
+                        <td>Région Occitanie</td>
+                        <td><span class="tag-label">Certif'Région</span></td>
+                        <td><a href="mailto:qualite_certifregion@laregion.fr">qualite_certifregion@laregion.fr</a></td>
+                    </tr>
+                    <tr>
+                        <td>Réseau des Écoles de la 2e Chance</td>
+                        <td><span class="tag-label">E2C</span></td>
+                        <td><a href="mailto:labellisation@reseau-e2c.fr">labellisation@reseau-e2c.fr</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- FOOTER AVEC CSS "INLINE" (Directement intégré pour être sûr que ça marche) -->
+    <footer style="background-color: #2c3e50; color: white; padding: 4rem 1.5rem 2rem 1.5rem; margin-top: auto; text-align: center; border-top: 5px solid #f1c40f;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            
+            <!-- Logo -->
+            <img src="https://z-cdn-media.chatglm.cn/files/181757b4-eb2d-4bd9-9c9f-e65e9ac37dca.png?auth_key=1870718681-92a6bccfbfd840c6b0c990ac94900f9d-0-a322b6f1780bdb4f6a85471882966c77" alt="Logo Academia360" style="height: 50px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+            
+            <h4 style="font-family: 'Montserrat', sans-serif; margin-bottom: 1rem; font-size: 1.6rem;">Academia360° - Expert Qualiopi</h4>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 2rem; flex-wrap: wrap;">
+                <div style="background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">🎓 Centre de Formation</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">🔍 Auditeur Qualiopi</div>
+            </div>
+            
+            <p style="margin-bottom: 1.5rem;">Votre partenaire stratégique pour le développement des compétences et la qualité.</p>
+
+            <!-- Lien vers le site principal -->
+            <a href="https://www.academia360.fr" target="_blank" class="footer-site-link" style="display: inline-block; margin: 1.5rem 0 2rem 0; color: #f1c40f; text-decoration: none; font-weight: 700; font-size: 1.1rem; padding: 10px 25px; border: 2px solid #f1c40f; border-radius: 50px; transition: all 0.3s ease;">
+                Visiter notre Centre de Formation ↗
+            </a>
+        </div>
+        
+        <div style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
+            &copy; 2025 Academia360°-Expert Qualiopi - Données issues du Ministère du Travail.| By Rania.B
+        </div>
+    </footer>
+
+    <!-- Scripts Fonctionnels -->
+    <script>
+        // Fonction de tri pour les tableaux
+        function sortTable(n, tableId) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById(tableId);
+            switching = true;
+            dir = "asc"; 
+            
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount ++; 
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+        // Fonction pour télécharger le CSV
+        function downloadCSV() {
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFF"; // BOM pour Excel
+            csvContent += "TYPE;ORGANISME;CONTACT\n";
+            
+            const tableCertif = document.getElementById("tableCertif");
+            for (let i = 1; i < tableCertif.rows.length; i++) {
+                let orgName = tableCertif.rows[i].cells[0].innerText.replace(/(\r\n|\n|\r)/gm, "");
+                let email = tableCertif.rows[i].cells[1].innerText;
+                csvContent += `CERTIFICATEUR;"${orgName}";${email}\n`;
+            }
+
+            csvContent += "\n";
+
+            const tableLabel = document.getElementById("tableLabel");
+            for (let i = 1; i < tableLabel.rows.length; i++) {
+                let instance = tableLabel.rows[i].cells[0].innerText.replace(/(\r\n|\n|\r)/gm, "");
+                let label = tableLabel.rows[i].cells[1].innerText;
+                let email = tableLabel.rows[i].cells[2].innerText;
+                csvContent += `LABEL;"${instance}";"${label}";${email}\n`;
+            }
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "Academia360_Liste_Certificateurs_Qualiopi.csv");
+            document.body.appendChild(link); 
+            
+            link.click();
+            document.body.removeChild(link);
+
+            showToast();
+        }
+
+        // Fonction pour afficher la notification
+        function showToast() {
+            var x = document.getElementById("toast");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body>
+</html>
